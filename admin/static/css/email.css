@@ -1,0 +1,43 @@
+.fontfamily{font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif; font-size:13px;}
+
+h1{font-size:26px; margin:0 0 10px 0; padding:0; font-weight: normal;}
+h2{font-size:18px; margin:0 0 5px 0; padding:0;}
+
+.table{border-collapse:collapse;}
+.block{display:block;}
+.text-center{text-align:center;}
+.text-right{text-align:right;}
+.text-justify{text-align:justify;}
+
+.table-box-space{height:12px;}
+.table-box-td {padding: 16px; background-color:white;}
+.tabulacao{border-collapse:collapse; width: 100%;}
+.tabulacao-td{padding-left:5px;  height: 36px; line-height: 36px; border-right:solid 1px white; border-bottom: solid 1px white;}
+.tabulacao-th{padding-left:5px; text-align:left; background-color: #404041; color: white; height: 36px; line-height: 36px; border-right:solid 1px white; border-bottom: solid 1px white;}
+.tabulacao-referencia{padding-left:5px; text-align:left; background-color: #ffb400; color: white; height: 36px; line-height: 36px; border-right:solid 1px white; border-bottom: solid 1px white;}
+.tabulacao-tr-alt{background-color: #efefef;}
+
+/*Margins e Espacos*/
+.margin-top{margin-top: 20px;}
+.margin-esquerda{padding-left: 8px;}
+
+/*cores*/
+.roxo  {color: #5a0d9b; }
+.verde {color: #12c200; }
+.azul  {color: #0084ff; }
+
+/*estilo da fonte*/
+.strong{font-weight: bold;}
+
+/*tamanho de fonte*/
+.titulo{font-size: 2em;}
+.texto-maior{font-size: 1.2em;}
+.texto-ainda-maior{font-size: 1.4em;}
+
+/* PEDIDOS */
+.margin-numeros{padding-left: 30px;}
+.gridview { border-spacing: 0;  border-collapse: separate;}
+.gridview-header {text-align: left; border-bottom: solid 1px #a0a0a0; padding: 0 35px 2px 0;}
+.gridview-division { padding: 2px 35px 2px 0;}
+.gridview-row-as-link {cursor: pointer;}
+.gridview-row:HOVER{background-color: #a0a0a0; color: #fff;}

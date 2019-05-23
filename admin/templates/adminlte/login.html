@@ -1,0 +1,11 @@
+{% extends "adminlte/login.html" %}
+
+
+<title>{% block title %}{{ site.name }}{% endblock %}</title>
+{% block form %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form  }}
+        <button type="submit" class="btn btn-info">Login</button>
+    </form>
+{% endblock %}

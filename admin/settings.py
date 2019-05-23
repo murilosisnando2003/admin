@@ -31,13 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'vendas',
+    'django_adminlte',
+    'django_adminlte_theme',
+    'django.contrib.admin',
+    
 ]
 
 MIDDLEWARE = [
@@ -52,10 +56,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'admin.urls'
 
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = '/'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['admin/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

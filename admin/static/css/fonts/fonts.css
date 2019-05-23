@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'SEGOEUIL';
+		src: url('SEGOEUIL.eot');
+	    src: url('SEGOEUIL.eot?#iefix') format('embedded-opentype'),
+	         url('SEGOEUIL.woff') format('woff'),
+	         url('SEGOEUIL.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'SEGOEUILPDF';
+		src: url('segoeui.otf');
+}

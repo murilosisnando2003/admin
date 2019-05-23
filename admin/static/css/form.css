@@ -1,0 +1,10 @@
+.form_input_error input,
+.form_input_error select,
+.form_input_error textarea {display:block; border: solid 1px #bd3636; background: #f9f8bb;}
+.form_error{color: #bd3636;font-size: 10px;font-weight:bold;}
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+{% extends "adminlte/login.html" %}
+
+
+{% block logo %}
+<div class="login-logo">
+    <a href="{% block logo_href %}/{% endblock %}">{% block logo_text %}<b>Sistema</b> Import{% endblock %}</a>
+</div>
+{% endblock %}
+
+<title>{% block title %}{{ site.name }}{% endblock %}</title>
+{% block form %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-info">Login</button>
+    </form>
+{% endblock %}
+

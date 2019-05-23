@@ -1,0 +1,48 @@
+.modalDialog {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	display:none;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+}
+
+.modalDialog-hide {
+	display:none;
+}
+
+.modalDialog-show{
+	display:block;
+}
+
+.modalDialog .modalwrapper {
+	border-left:solid 7px #0ec500;
+	position: relative;
+	padding: 25px 30px 28px 25px;
+	background: #fff;
+	overflow: auto;
+}
+
+.close {
+	display:block;
+	background-image:url(img/fechar.png);
+	background-repeat:no-repeat;
+	width:31px;
+	height:32px;
+	position: absolute;
+	right:30px;
+	top:30px;
+	cursor: pointer;
+}
+
+.modalLoading {
+	background-image:url(img/loading.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	min-height: 200px;
+}
