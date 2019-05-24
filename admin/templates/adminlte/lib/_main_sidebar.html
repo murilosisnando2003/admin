@@ -1,5 +1,14 @@
 {% extends 'adminlte/lib/_main_sidebar.html' %}
 
+{% block logo %}
+<a href="{% block logo_href %}/{% endblock %}" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><b>On</b>ly</span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b>Only</b>Admin</span>
+</a>
+{% endblock %}
+
 {% block nav_links %}
     <li>
         <a href="/some/url">
