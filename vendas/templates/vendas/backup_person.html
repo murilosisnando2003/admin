@@ -1,0 +1,47 @@
+{% extends 'adminlte/base.html' %}
+
+
+{% block title %} Administracao {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <a href="{% url 'person_new' %}" class="btn btn-primary"> Novo cliente</a>
+        <div class="col-6">
+            <h3>Listagem de clientes</h3>
+            <ul class="list-group">
+                {% for person in persons %}
+                    <li class="list-group-item">
+                        <a href="{% url 'persons_update' person.id %}">{{ person.name }}</a>
+                        <a href="{% url 'persons_delete' person.id %}" class="trash-item">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                {% endfor %}
+            </ul>
+
+            <br>
+
+            
+
+        </div>
+
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Ola {{user.username }}
+                    <a href="{% url 'logout' %}">
+                        <span class="badge badge-dark">Sair</span>
+                    </a>
+                </p>
+
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}
+
