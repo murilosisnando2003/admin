@@ -12,6 +12,10 @@ from tablib import Dataset
 from .forms import PersonForm
 from .models import Person
 from django.shortcuts import get_list_or_404, get_object_or_404
+from django.forms import modelformset_factory
+from vendas.tables import PersonTable
+
+
 
 # Create your views here.
 
@@ -59,10 +63,38 @@ def simple_upload(request):
     return render(request, 'core/simple_upload.html')
 
 
+# # @login_required
+# def persons_list(request):
+#     persons = Person.objects.get()
+#     form = PersonForm(instance=persons)
+#     return render(request, 'vendas/person.html', {'form': form})
+
+#     def get_object(self, queryset=None):
+#         obj = persons.objects.all()
+#         return obj
+
 @login_required
 def persons_list(request):
-    persons = Person.objects.all()
-    return render(request, 'vendas/person.html', {'persons': persons})
+    persons = PersonTable()
+    return render(request, 'vendas/person.html',{'persons':persons})
+
+  
+
+
+
+ 
+
+# def edit_order(request, pk):
+#     pizza = Pizza.objects.get(pk=pk)
+#     form = PizzaForm(instance=pizza)
+#     if request.method=='POST':
+#         filled_form = PizzaForm(request.POST,instance=pizza)
+#         if filled_form.is_valid():
+#             filled_form.save()
+#             form=filled_form
+#             note = 'Order has been updated'
+#             return render(request,'pizza/edit_order.html',{'note':note, 'pizzaform':form, 'pizza': pizza})
+#     return render(request,'pizza/edit_order.html',{'pizzaform':form, 'pizza': pizza})    
 
 
 @login_required

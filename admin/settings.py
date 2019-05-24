@@ -30,10 +30,14 @@ INSTALLED_APPS = [
     'django_adminlte_theme',
     'django.contrib.admin',
     'import_export',
+    'crispy_forms',
+    'django_tables2',
+    'table',
     
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
