@@ -1,0 +1,13 @@
+{% extends 'adminlte/base.html' %}
+
+
+{% block title %} Administracao {% endblock %}
+
+{% block content %}
+    <h3>Novo cliente</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+{% endblock %}
