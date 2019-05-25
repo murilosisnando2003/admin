@@ -1,0 +1,36 @@
+{% extends 'adminlte/base.html' %}
+{% load staticfiles el_pagination_tags i18n%}
+{% block html-title %}{{ pagetitle }}{% endblock %}
+
+
+{% block content %}
+    
+    <div class="left" style="padding: 30px 0 0 70px;">
+        <form action="" method="get">
+            <div class="form-consulta center">
+            {% block filter %}{% endblock %}
+            </div>
+            <button class="button left" type="submit"><i class="fa fa-search" aria-hidden="true"></i> {% trans "Search" %}</button>
+            {% if querystring %}
+            <a style="margin-left: 10px;" class="button left" href="{{ request.path }}"><i class="fa fa-undo" aria-hidden="true"></i> {% trans "Reset Search" %}</a>
+            {% endif %}
+        </form>
+    </div>
+    {% paginate itens %}
+    {% if itens %}
+        {% block grid %}
+        {% endblock %}
+    {% else %}
+        <div class="clear" style="padding: 50px 10px; font-size: 20px; color:#00a04e;">
+            {% trans "No Records" %}
+        </div>
+    {% endif %}
+    <div class="pagination-wrapper">
+            {% show_pages %}
+    </div>
+    {% if add_url %}
+        <div style="padding:10px 0 0 10px; float: left;">
+            <a class="button" href="{% url add_url %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> {% trans "Add" %}</a>
+        </div>
+    {% endif %}
+{% endblock content %}

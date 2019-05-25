@@ -1,0 +1,36 @@
+{% extends 'generic_view/list.html' %}
+{% block extra-head %}
+    {{ block.super }}
+    <style type="text/css">
+        #id_q{width: 300px;}
+    </style>
+{% endblock %}
+{% block filter %}
+    {{ form.q }}
+{% endblock %}
+
+{% block grid %}
+    <table class="grid">
+        <tr>
+            <th></th>
+            <th>Codigo</th>
+            <th>Descrição</th>
+
+
+            <th class="edit-column">Edit</th>
+        </tr>
+        {% for i in itens %}
+            <tr class="{%cycle 'alt' ''%}">
+                <td class="{%cycle 'yellow' 'green'%}"></td>
+                <td>{{ i.codigo }}</td>
+                <td>{{ i.descricao }}</td>
+
+                <td class="edit-column">
+                    <a href="{{ i.get_absolute_url }}">
+                        <span class="fa fa-pencil-square-o icon-color" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

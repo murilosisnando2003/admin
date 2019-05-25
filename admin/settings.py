@@ -32,7 +32,9 @@ INSTALLED_APPS = [
     'import_export',
     'crispy_forms',
     'django_tables2',
-    'table',
+    'el_pagination',
+    'widget_tweaks',
+    # 'table',
     
 ]
 

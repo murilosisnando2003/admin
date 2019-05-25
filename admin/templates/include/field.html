@@ -1,0 +1,4 @@
+<span {%if field.errors %}class="form_input_error"{%endif%}>
+	{{field}}
+</span>
+{% for error in field.errors %}<i class="form_error"> {{error|safe}}{%if not forloop.last%} | {%endif%}</i>{%endfor%}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block html-title %}{% trans "Not found" %}{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-5">
+					<p class="not-found-status-code">404</p>
+					<p class="not-found-title">{% trans "PAGE NOT FOUND" %}</p>
+					<h3 class="not-found-desc">{% trans "The page that you did try to access was not found or not exist" %}.</h3>
+					<br>
+					<a class="not-found-back" href="{% url 'template_home' %}">{% trans "Return" %}</a>
+				</div>
+				<div class="col-md-4">
+					<br>
+					<img class="not-found-image" src="{{ STATIC_URL }}images/logo-404.png">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock%}

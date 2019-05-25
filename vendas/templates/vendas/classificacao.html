@@ -1,0 +1,21 @@
+{% extends 'generic_view/addedit.html' %}
+{% block extra-head %}
+    {{ block.super }}
+    <style type="text/css">
+        #id_name{width:632px;}
+    </style>
+{% endblock %}
+{% block fields %}
+    <div class="linha">
+        <div class="coluna">
+            <span class="form-label">Código:</span>
+            {%include "include/field.html" with field=form.codigo%}
+        </div>
+        <div class="coluna">
+            <span class="form-label">Descrição:</span>
+            {%include "include/field.html" with field=form.descricao%}
+        </div>
+
+    </div>
+
+{% endblock %}

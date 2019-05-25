@@ -1,0 +1,28 @@
+{% extends 'adminlte/base.html' %}
+{% load staticfiles i18n%}
+
+{% block content %}
+    <div class="form-wrapper" style="margin-bottom: 100px;">
+		{%if form.non_field_errors%}
+			<div class="non_fields_error"><span class="fa fa-exclamation-triangle"></span> {%for e in form.non_field_errors%}{{e}}{%endfor%}</div>
+		{%endif%}
+        {% block beforefields %}
+        {% endblock %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form">
+                {% block fields %}
+                <br>
+                {% endblock %}
+            </div>
+            <button class="button left" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> {% trans "Save" %}</button>
+            {% if delete %}
+                <button style="margin-left: 10px;" class="button left" type="submit" name="delete"><i class="fa fa-times-circle" aria-hidden="true"></i> {% trans "Delete" %}</button>
+            {% endif %}
+            {% if return_url %}
+            <a style="margin-left: 10px;" class="button left" href="{% url return_url %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans "Go Back" %}</a>
+            {% endif %}
+        </form>
+    </div>
+
+{% endblock content %}

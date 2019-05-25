@@ -1,0 +1,42 @@
+{% load email staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+	<head>
+		<title>PDW</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body style="margin:0; padding:0;">
+        <table style='{% email "table" %} margin:0; padding:0;' width="100%" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+                <td>
+                    <table style='background-color:#00a04e; {%email "table"%}' width="100%">
+                        <tr>
+                            <td>
+                                <table style='{% email "table" %}' width="100%" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td style="padding-left:10px;"><img src="{{ host }}{% static "css/layout/img/logotipo-pdw-topo.png" %}" /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="3" style='background-color:#ffca04;'>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <table style='{% email "table" %}' align="center" width="100%" >
+                        <tr>
+                            <td style="padding:10px;">
+                            {% block page %}
+
+                            {% endblock %}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+	</body>
+</html>

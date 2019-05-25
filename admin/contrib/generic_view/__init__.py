@@ -1,0 +1,1 @@
+from .views import add_edit, list_view

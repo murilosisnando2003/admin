@@ -1,0 +1,352 @@
+{% load staticfiles i18n%}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<title>
+	{% block html-title %}{% endblock %} - PDW
+</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width">
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Language" content="pt-br" />
+<meta name="author" content="OS3 Soluções Em Tecnologia da Informação">
+<meta name="keywords" content="PDW" />
+<meta name="description" content="PDW" />
+{%block meta%}{%endblock%}
+
+{% block style %}
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon-pdw.png' %}"/>
+    <link href="{% static "autocomplete_light/vendor/select2/dist/css/select2.css" %}" type="text/css" media="all" rel="stylesheet" />
+    <link href="{% static "autocomplete_light/select2.css" %}" type="text/css" media="all" rel="stylesheet" />
+  	<link rel="shortcut icon" href="{% static 'css/layout/img/icone.png' %}" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/3-col-portfolio.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/customize.css' %}">
+    <link rel="stylesheet" type="text/css" href='{% static "css/layout.css" %}?ver=7' media="screen" />
+    <link rel="stylesheet" type="text/css" href='{% static "css/icone.css" %}' media="screen" />
+	<link rel="stylesheet" type="text/css" href='{% static "css/font-awesome-4.6.1/css/font-awesome.min.css" %}' media="screen" />
+	<link rel="stylesheet" type="text/css" href='{% static "jquery/jquery-ui-1.11.4/jquery-ui.min.css" %}' media="screen" />
+
+{% endblock style %}
+
+{% block scripts %}
+	<script type="text/javascript" src='{% static "jquery/" %}{% block jquery-version %}jquery-2.1.3{% endblock %}.min.js'></script>
+	<script type="text/javascript" src='{% static "jquery/jquery-ui-1.11.4/jquery-ui.min.js" %}'></script>
+	<script type="text/javascript" src='{% static "js/bootstrap.min.js" %}'></script>
+	<script type="text/javascript" src='{% static "js/controls.js" %}'></script>
+	<!-- <script type="text/javascript" src='{% static "js/functions.js" %}?ver=1'></script>-->
+    <script type="text/javascript" src="{% static "autocomplete_light/jquery.init.js" %}"></script>
+    <script type="text/javascript" src="{% static "autocomplete_light/autocomplete.init.js" %}"></script>
+    <script type="text/javascript" src="{% static "autocomplete_light/vendor/select2/dist/js/select2.full.js" %}"></script>
+    <script type="text/javascript" src="{% static "autocomplete_light/select2.js" %}"></script>
+    <script type="text/javascript">
+        function set_language(code){
+            $('#language').val(code);
+            $('#f_language').submit();
+        }
+    </script>
+{% endblock scripts %}
+
+{% block extra-head %}
+
+{% endblock %}
+</head>
+
+<body class="content-1" style="background-image: url({% block body-image %}{% endblock %});">
+
+<div id="page-wrapper">
+	<div id="header-wrapper">
+		<div id="header-content">
+			<a href="{% url 'template_home' %}" title="Página Inicial" id="header-logo"></a>
+			<div id="header-menu">
+				{% block header-menu %}
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{% url 'template_home' %}">{% trans "HOME" %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'template_products' %}">{% trans "PRODUCTS" %}</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "CUSTOMERS" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'customer_customers' %}">{% trans "Customers" %}</a></li>
+                            <li><a href="{% url 'customer_cnaes' %}">{% trans "Cnae" %}</a></li>
+                            <li><a href="{% url 'registers_status' %}">{% trans "Register Status" %}</a></li>
+                            <li><a href="{% url 'customer_customers_type' %}">{% trans "Customer Type" %}</a></li>
+                            <li><a href="{% url 'policies' %}">{% trans "Policies" %}</a></li>
+                            <li><a href="{% url 'qiachacha' %}">{% trans "QiAchaAcha" %}</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "ATTRIBUTES" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'product_disciplines' %}">{% trans "Disciplines" %}</a></li>
+                            <li><a href="{% url 'template_distributor' %}">{% trans "Distributors" %}</a></li>
+                            <li><a href="{% url 'template_manufacturer' %}">{% trans "Supliers" %}</a></li>
+                            <li><a href="{% url 'product_list_class' %}">{% trans "Classes" %}</a></li>
+                            <li><a href="{% url 'product_list_subclass' %}">{% trans "SubClasses" %}</a></li>
+                            <li><a href="{% url 'template_status' %}">{% trans "Status" %}</a></li>
+                            <li><a href="{% url 'template_unit' %}">{% trans "Units" %}</a></li>
+                            <li><a href="{% url 'product_families' %}">{% trans "Family" %}</a></li>
+                            <li><a href="{% url 'template_required_fields' %}">{% trans "Required Fields" %}</a></li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Sales" %}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'sellers' %}">{% trans "Sellers" %}</a></li>
+                                    <li><a href="{% url 'seller_regions' %}">{% trans "Regions" %}</a></li>
+                                    <li><a href="{% url 'payment_terms' %}">{% trans "Payment Terms" %}</a></li>
+                                    <li><a href="{% url 'index_economics' %}">{% trans "Index Economics" %}</a></li>
+                                    <li><a href="{% url 'default_texts' %}">{% trans "Default Texts" %}</a></li>
+                                    <li><a href="{% url 'formacoes_preco' %}">{% trans "Formação Preço" %}</a></li>
+                                    <li><a href="{% url 'type_sales' %}">{% trans "Tipo de Venda" %}</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Deals" %}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'deals_pd_list' %}">{% trans "Prog. Desc." %}</a></li>
+                                    <li><a href="{% url 'deals_pgc_list' %}">{% trans "Prog. Desc. PGC" %}</a></li>
+                                    <li><a href="{% url 'deals_pdf_list' %}">{% trans "Prog. Desc. Fornecedor" %}</a></li>
+                                    <li><a href="{% url 'deals_tipo_acordo_list' %}">{% trans "Tipo de acordo"%}</a></li>
+                                    <li><a href="{% url 'deals_classe_list' %}">{% trans "Classes" %}</a></li>
+                                    <li><a href="{% url 'deals_classe_pd_list' %}">{% trans "Classes x PD" %}</a></li>
+                                    <li><a href="{% url 'deals_classe_pgc_list' %}">{% trans "Classes x PGC" %}</a></li>
+                                    <li><a href="{% url 'customer_prod_list' %}">{% trans "Produto x Customer" %}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "FISCAL" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Cenofisco" %}</a>
+                                <ul class="dropdown-menu">
+                                     <li><a href="{% url 'fiscal_acordo' %}">{% trans "Acordo" %}</a></li>
+                                     <li><a href="{% url 'fiscal_exportacao' %}">{% trans "Exportação" %}</a></li>
+                                     <li><a href="{% url 'fiscal_importacao' %}">{% trans "Importação" %}</a></li>
+                                     <li><a href="{% url 'fiscal_acordolivre' %}">{% trans "Livre Comércio" %}</a></li>
+                                     <li><a href="{% url 'fiscal_naladi' %}">{% trans "Naladi" %}</a></li>
+                                     <li><a href="{% url 'fiscal_ato' %}">{% trans "Ato" %}</a></li>
+                                     <li><a href="{% url 'fiscal_classificacao' %}">{% trans "Base Fiscal" %}</a></li>
+                                     <li><a href="{% url 'fiscal_correlacao' %}">{% trans "Correlação" %}</a></li>
+                                     <li><a href="{% url 'fiscal_data' %}">{% trans "Datas" %}</a></li>
+                                     <li><a href="{% url 'fiscal_itemst' %}">{% trans "Itens ST" %}</a></li>
+                                     <li><a href="{% url 'fiscal_itemtec' %}">{% trans "Itens TEC" %}</a></li>
+                                     <li><a href="{% url 'fiscal_link' %}">{% trans "Links" %}</a></li>
+
+                                     <li><a href="{% url 'fiscal_ncmnve' %}">{% trans "NCM NVE" %}</a></li>
+                                     <li><a href="{% url 'fiscal_especificacao' %}">{% trans "Especificação NCM" %}</a></li>
+                                     <li><a href="{% url 'fiscal_nve' %}">{% trans "NVE" %}</a></li>
+                                     <li><a href="{% url 'fiscal_atributo' %}">{% trans "Atributo" %}</a></li>
+                                     <li><a href="{% url 'fiscal_reqstatus' %}">{% trans "Req. Status" %}</a></li>
+                                     <li><a href="{% url 'fiscal_retrequisicao' %}">{% trans "Ret. Requisição" %}</a></li>
+                {#                                         <li><a href="{% url 'fiscal_retrospectiva' %}">Retrospectiva</a></li>#}
+                {#                                         <li><a href="{% url 'fiscal_retrospectivahist' %}">Retrospectiva Histórico</a></li>#}
+                {#                                         <li><a href="{% url 'fiscal_retrospectivancm' %}">Retrospectiva NCM</a></li>#}
+                {#                                         <li><a href="{% url 'fiscal_retrospectivanota' %}">Retrospectiva Nota</a></li>#}
+                {#                                         <li><a href="{% url 'fiscal_retrospectivaval' %}">Retrospectiva Valor</a></li>#}
+                                     <li><a href="{% url 'fiscal_taxa' %}">{% trans "Taxa" %}</a></li>
+                                     <li><a href="{% url 'fiscal_tratamento' %}">{% trans "Tratamentos" %}</a></li>
+                                     <li><a href="{% url 'fiscal_unidade' %}">{% trans "Unidade" %}</a></li>
+                                 </ul></li>
+                              <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "CST" %}</a>
+                                <ul class="dropdown-menu">
+                                     <li><a href="{% url 'fiscal_cstpis' %}">{% trans "CST PIS" %}</a></li>
+                                     <li><a href="{% url 'fiscal_cstcofins' %}">{% trans "CST COFINS" %}</a></li>
+                                     <li><a href="{% url 'fiscal_csticms' %}">{% trans "CST ICMS" %}</a></li>
+                                     <li><a href="{% url 'fiscal_csticmsst' %}">{% trans "CST ICMS-ST" %}</a></li>
+                                     <li><a href="{% url 'fiscal_cstipi' %}">{% trans "CST IPI" %}</a></li>
+                                 </ul></li>
+                              <li><a href="{% url 'fiscal_cest' %}">{% trans "CEST" %}</a></li>
+                              <li><a href="{% url 'fiscal_cfop' %}">{% trans "CFOP" %}</a></li>
+                              <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Localidade" %}</a>
+                                <ul class="dropdown-menu">
+                                     <li><a href="{% url 'fiscal_cidade' %}">{% trans "Cidade" %}</a></li>
+                                     <li><a href="{% url 'fiscal_estado' %}">{% trans "Estado" %}</a></li>
+                                     <li><a href="{% url 'fiscal_pais' %}">{% trans "País" %}</a></li>
+                                 </ul></li>
+                              <li><a href="{% url 'fiscal_natjuridica' %}">{% trans "Natureza Juridica" %}</a></li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "NCM" %}</a>
+                                <ul class="dropdown-menu">
+                                     <li><a href="{% url 'fiscal_ncm' %}">{% trans "NCM" %}</a></li>
+                                     <li><a href="{% url 'fiscal_ncmpiscofins' %}">{% trans "NCM PIS/COFINS" %}</a></li>
+                                     <li><a href="{% url 'fiscal_ncmicms' %}">{% trans "NCM ICMS" %}</a></li>
+                                     <li><a href="{% url 'fiscal_ncmicmsst' %}">{% trans "NCM ICMS-ST" %}</a></li>
+                                     <li><a href="{% url 'fiscal_ncmipi' %}">{% trans "NCM IPI" %}</a></li>
+                                     <li><a href="{% url 'fiscal_ncmii' %}">{% trans "NCM II" %}</a></li>
+                                     <li><a href="{% url 'fiscal_mensagem' %}">{% trans "NCM Mensagens" %}</a></li>
+                                 </ul></li>
+
+                              <li><a href="{% url 'fiscal_origem' %}">{% trans "Origem Produto" %}</a></li>
+                              <li><a href="{% url 'fiscal_tipotribut' %}">{% trans "Tipo Tributação" %}</a></li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "JOBS" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Imports" %}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'receiver_template_jobs' %}">{% trans "Jobs" %}</a></li>
+                                    <li><a href="{% url 'receiver_template_show_exceptions' %}">{% trans "Logs" %}</a></li>
+                                 </ul></li>
+                            </li>
+                        </ul>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "STAGING" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'product_staging' %}">{% trans "PRODUCT" %}</a></li>
+                            <li><a href="{% url 'product_staging_price' %}">{% trans "SALES PRICE" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "DICTIONARY" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'dictionary_exception' %}">{% trans "Exceptions" %}</a></li>
+                            <li><a href="{% url 'dictionary_languages' %}">{% trans "Languages" %}</a></li>
+                            <li><a href="{% url 'dictionary_suggestions' %}">{% trans "Suggestions" %}</a></li>
+                            <li><a href="{% url 'dictionary_search_suggestion' %}">{% trans "Search Suggestion" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "FILES" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'receiver_template_export_products' %}">{% trans "Export Products (Excel)" %}</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'receiver_export_feature' %}">{% trans "Export Feature" %}</a></li>
+                            <li><a href="{% url 'receiver_export_fiscal' %}">{% trans "Export Fiscal" %}</a></li>
+                            <li><a href="{% url 'receiver_export_ncm_cfop' %}">{% trans "Export NCM X CFOP" %}</a></li>
+                            <li><a href="{% url 'receiver_export_sales_price' %}">{% trans "Export Sales" %}</a></li>
+                            <li><a href="{% url 'receiver_export_pd' %}">{% trans "Export PD" %}</a></li>
+                            <li><a href="{% url 'receiver_export_product_fiscal' %}">{% trans "Export Product/Fiscal" %}</a></li>
+                            <li><a href="{% url 'receiver_pdw_apolo' %}">{% trans "Export PDW/Apolo" %}</a></li>
+                            <li role="separator" class="divider"></li>
+
+                            <li class="dropdown-submenu">
+                                <li><a href="{% url 'receiver_import_products' %}">{% trans "Import Products/Fiscal/PD" %}</a></li>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <li><a href="{% url 'receiver_import_sales_prices' %}">{% trans "Import Sales Price" %}</a></li>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <li><a href="{% url 'receiver_import_customer_price' %}">{% trans "Import Customer Price" %}</a></li>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <li><a href="{% url 'receiver_import_erp' %}">{% trans "Update PDW X ERP" %}</a></li>
+                            </li>
+                            <li role="separator" class="divider"></li>
+
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Xls Structure" %}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'receiver_priorities' %}">{% trans "Priority" %}</a></li>
+                                    <li><a href="{% url 'receiver_structures' %}">{% trans "Structure" %}</a></li>
+                                 </ul>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'schedule_schedules' %}">{% trans "Schedule" %}</a></li>
+                            <li><a href="{% url 'schedule_ftps' %}">{% trans "My FTPs" %}</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <script>
+                    // javascript para controlar menu
+                    controlMenu()
+                </script>
+
+				{% endblock %}
+			</div>
+			<div id="header-greetings-wrapper">
+				{% block greetings-content %}
+                    {% if request.user.is_authenticated %}
+                        <span id="header-greetings" class="logged-on">
+                            <a href="{% url 'edit_profile' %}">{{ request.user}}</a>
+                            <span><a href="{% url 'logout' %}">{% trans "Sair" %}</a></span>
+                        </span>
+                        <a href="#minhap-conta" class="icone usuarios " title="Minha Conta" style="height: 50px;"></a>
+                    {% endif %}
+				{% endblock %}
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown" style="list-style: none; padding-top: 10px;">
+                        <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="nav-link-language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-globe fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu" style="left: auto; right: 0; background-color: #004b9e; padding-left:10px;" aria-labelledby="nav-link-language">
+                            <div class="nav-item">
+                                <a class="nav-link" href="javascript:set_language('pt-br');">pt-br</a>
+                            </div>
+                            <div class="nav-item">
+                                <a class="nav-link" href="javascript:set_language('en');">en</a>
+                            </div>
+                            <div class="nav-item">
+                                <a class="nav-link" href="javascript:set_language('it');">it</a>
+                            </div>
+                            <div class="nav-item">
+                                <a class="nav-link" href="javascript:set_language('zh-hans');">zh</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="content-before-wrapper">
+		{% block content-before %}{% endblock %}
+	</div>
+
+	<div id="content-wrapper">
+		{% block content %}{% endblock %}
+	</div>
+
+	<div id="footer-wrapper">
+		<div id="footer-content">
+			©2016 - <span>EDGE Group Supply</span>
+		</div>
+
+		<div id="footer-extra-content">
+			{% block footer-extra-content %}
+
+			{% endblock %}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<form action="{% url 'set_language' %}" method="post" id="f_language">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}" />
+    <input type="hidden" name="language" id="language" />
+</form>
+</body>
+</html>
