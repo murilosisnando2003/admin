@@ -1,10 +1,8 @@
 {% extends 'adminlte/lib/_main_sidebar.html' %}
 
-
-
 {% block nav_links %}
     <li>
-        <a href="/some/url">
+        <a href="{% url 'home' %}">
             <i class="fa fa-dashboard"></i> <span>Home</span>
         </a>
     </li>

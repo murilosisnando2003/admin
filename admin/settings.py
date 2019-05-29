@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'vendas',
     'django_adminlte',
     'django_adminlte_theme',
@@ -34,8 +35,8 @@ INSTALLED_APPS = [
     'django_tables2',
     'el_pagination',
     'widget_tweaks',
-    # 'table',
-    
+
+   
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
