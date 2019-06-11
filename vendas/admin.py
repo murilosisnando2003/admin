@@ -11,3 +11,5 @@ admin.site.register(Clientes)
 @admin.register(Person)
 class PersonAdmin(ImportExportModelAdmin):
     pass
+
+
