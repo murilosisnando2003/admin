@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth import authenticate
 from django.forms.utils import ErrorList
 from django.utils.translation import ugettext_lazy as _
-from .models import Person,Classificacao,Post
+from .models import Person,Classificacao,Post,UsuarioWeb
 from django.forms import ModelForm
 from django.db.models import Q
 
@@ -34,3 +34,9 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = "__all__"
+
+class UsuarioWebForm(forms.ModelForm):
+    class Meta:
+        model = UsuarioWeb
+        fields = "__all__"
+

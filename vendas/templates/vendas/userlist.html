@@ -28,30 +28,14 @@
  <br/>
  <table class="table table-bordered table-hover dataTable">
    <tr>
-      <th>Ações</th>
-      <th>Titulo</th>
+      <th>Nome</th>
+      
    </tr>
 
 
- {% for post in post_list %}
+ {% for usuarios in user_list %}
  <tr>
-    <td><a href=" {% url 'detail' post.pk %}">
-        <button type="button" class="btn btn-info">
-         <span class="glyphicon glyphicon-open"></span>
-        </button>&nbsp
-
-        <a href="{% url 'edit' post.pk %}">
-        <button type="button" class="btn btn-info">
-        <span class="glyphicon glyphicon-pencil"></span></button>&nbsp
-
-        <a href=" {% url 'delete' post.pk %}">
-        <button type="button" class="btn btn-danger">
-        <span class="glyphicon glyphicon-trash"></span>
-        </button>&nbsp
-        
-      </td>
-    
-    <td><a href="{% url 'detail' post.pk %}">{{ post.title }}</a></td>
+       <td><a href="{% url 'detail' post.pk %}">{{ usuarios.usuwebnome }}</a></td>
  </tr>
  
  {% endfor %}

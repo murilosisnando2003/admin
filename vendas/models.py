@@ -82,3 +82,16 @@ class Clientes(models.Model):
     datacadastro = models.DateField(auto_now=True)
     location = models.CharField(max_length=200, blank=True)
     cnpj = models.CharField(unique=True, max_length=14, validators=[validate_CNPJ])
+
+
+
+class Apolo(models.Model):
+    class Meta:
+        db_table = 'apolo'
+    apolover = models.CharField(max_length=7, unique=True)
+    apolodatahora = models.DateField(null=True, blank=True)
+    apoloalter = models.CharField(max_length=20, blank=True)
+    apolomp135 = models.CharField(max_length=10, blank=True)
+    
+
+    

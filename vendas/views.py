@@ -20,7 +20,7 @@ from django.utils.html import escape
 from admin.contrib.generic_view import add_edit, list_view
 from django.utils.translation import ugettext_lazy as _
 from .forms import PostForm
-from .models import Post
+from .models import Post,UsuarioWeb
 
 
 def home(request):
@@ -154,3 +154,11 @@ def delete(request, pk, template_name='vendas/confirm_delete.html'):
         post.delete()
         return redirect('index')
     return render(request, template_name, {'object':post})
+
+
+
+class UserView(ListView):
+ template_name='vendas/userlist.html'
+ context_object_name = 'user_list'
+ def get_queryset(self):
+  return UsuarioWeb.objects.all()

@@ -9,6 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'g=y0%$69w7-ee1el!wlqw%_zh*m6rb=!pp&+bsr8*yu%36b=t^'
+DATABASE_ROUTERS = ['admin.router.ERPRouter']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,6 +84,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'erp': {'ENGINE': 'django.db.backends.oracle', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'LADDER',  # Or path to database file if using sqlite3.
+        'USER': 'ladder',  # Not used with sqlite3.
+        'PASSWORD': 'apolo',  # Not used with sqlite3.
+        'HOST': '172.16.0.166',  # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '1521',
     }
 }
 
