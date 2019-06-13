@@ -85,13 +85,6 @@ class Clientes(models.Model):
 
 
 
-class Apolo(models.Model):
-    class Meta:
-        db_table = 'apolo'
-    apolover = models.CharField(max_length=7, unique=True)
-    apolodatahora = models.DateField(null=True, blank=True)
-    apoloalter = models.CharField(max_length=20, blank=True)
-    apolomp135 = models.CharField(max_length=10, blank=True)
-    
+
 
     

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'vendas',
+    'erp',
     'django_adminlte',
     'django_adminlte_theme',
     'django.contrib.admin',
@@ -133,3 +134,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.sendgrid.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'intereng'
+EMAIL_HOST_PASSWORD = 'rlc0905'
+EMAIL_FROM = 'EDGE<info@edgeglobalsupply.com.br>'

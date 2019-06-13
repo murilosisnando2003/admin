@@ -1,0 +1,37 @@
+{% extends 'adminlte/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h3 class="round3" style="text-align:center;">Controle Remanufatura</h3>
+
+<table class="table table-bordered table-hover dataTable">
+   <tr>
+      <th>Ações</th>
+      <th>Empresa</th>
+      <th>Chave</th>
+      <th>Nota</th>
+      <th>Emissão</th>
+      <th>Entidade</th>
+      <th>Aviso</th>
+      
+   </tr>
+ {% for remanufatura in remanufatura_list %}
+ <tr>
+    <td><a href="{% url 'editremanufatura' remanufatura.pk %}">
+      <button type="button" class="btn btn-info">
+       <span class="glyphicon glyphicon-pencil"></span></button>&nbsp</td>
+       <td><a href="">{{ remanufatura.empresa }}</a></td>
+       <td><a href="">{{ remanufatura.chave }}</a></td>
+       <td><a href="">{{ remanufatura.nota }}</a></td>
+       <td><a href="">{{ remanufatura.emissao }}</a></td>
+       <td><a href="">{{ remanufatura.entidade }}</a></td>
+       <td><a href="">{{ remanufatura.aviso }}</a></td>
+ </tr>
+ 
+ {% endfor %}
+</table>
+</div>
+
+
+{% endblock %}

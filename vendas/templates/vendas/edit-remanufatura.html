@@ -1,0 +1,11 @@
+{% extends 'adminlte/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h3>Editar Remanufatura</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+{% endblock %}
